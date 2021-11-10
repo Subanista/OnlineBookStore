@@ -1,0 +1,139 @@
+<?php
+session_start();
+require('connection.php');
+
+
+if(empty($_SESSION['customer_id'])){
+ header("location:login.php");
+}
+
+$result=mysqli_query($conn, "SELECT * FROM tbcustomer WHERE customer_id = '$_SESSION[customer_id]'")
+or die("There are no records to display ... \n" .mysql_error());
+if (mysqli_num_rows($result)<1){
+    $result = nuill;
+}
+$row = mysqli_fetch_array($result);
+if($row)
+ {
+ 
+ $cusId = $row['customer_id'];
+ $firstName = $row['F_name'];
+ $lastName = $row['L_name'];
+ $email = $row['Email'];
+ }
+?>
+<?php
+
+if (isset($_POST['update'])){
+$myId = addslashes( $_GET['id']);
+$myEmail = $_POST['email'];
+$myPassword = $_POST['pass'];
+
+$newpass = md5($myPassword); 
+
+$sql = mysqli_query($conn, "UPDATE tbcustomer SET  Email='$myEmail', Password='$newpass' WHERE customer_id = '$myId'" )
+        or die( mysqli_error() );
+
+
+ header("Location:profile.php");
+}
+?>
+<html>
+	<head>
+		<title> </title>
+		<link rel="stylesheet" type="text/css" href="css/Untitled-3.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+        <script language="JavaScript" src="js/user.js">
+</script>
+        <style>
+		.btn{
+  position: absolute;
+  top: 55%;
+  left: 72%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #f1f1f1;
+  color: black;
+  font-size: 16px;
+  padding: 16px 30px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+  width:150px;
+  height:40px;
+  font-style:oblique;
+}
+.btn:hover {
+  background-color: black;
+  color: white;
+}
+	
+</style>
+        
+	</head>
+<body>
+		<h1 align="center">B-LANKA ONLINE BOOK STORE</h1>
+	<div class="P"><img src="img/logo.jpg" alt="logo" width="200" height="100"></div>
+    <br>
+    <br>
+<div class="topnav">
+			<a  href="#home">Home</a>
+  			<a href="login.html">Login</a>
+			<a href="#">Registration</a>
+			<a href="#">Product & Service</a>
+			<a href="#">Category</a>
+  			<a href="#c">Contact</a>
+  		<div class="search-container">
+			<form action="#">
+      			<input type="text"  name="search">
+      			<button type="submit">Search</button>
+    		</form>
+  		</div>
+	</div>
+
+	
+<div id="page" style="width:900px">
+<div id="container">
+<table>
+<tr>
+<td>
+<table width="380" align="center">
+<CAPTION><h3><font color="#FFFFFF">MY PROFILE</font></h3></CAPTION>
+<tr>
+    <td>UserName:</td>
+    <td><?php echo $cusId ?></td>
+</tr>
+<tr>
+    <td>Email:</td>
+    <td><?php echo $email; ?></td>
+</tr>
+<tr>
+    <td>Password:</td>
+    <td>Encrypted</td>
+</tr>
+</table>
+</td>
+<td>
+<table border="0" width="620" align="center">
+<CAPTION><h3><font color="#FFFFFF">UPDATE PROFILE</font></h3></CAPTION>
+<form action="profile.php? id=<?php echo $_SESSION['customer_id']; ?>" method="post" onSubmit="return updateProfile(this)">
+<table align="center">
+<tr><td>Email Address:</td><td><input type="text"  name="email" maxlength="100" value=""></td></tr>
+<tr><td>New Password:</td><td><input type="password"  name="pass" maxlength="5" value=""></td></tr>
+<tr><td>Confirm New Password:</td><td><input type="password"  name="ConfirmPassword" maxlength="15" value=""></td></tr>
+<tr><td>&nbsp;</td></td><td><input type="submit" name="update" value="Update Profile" class="btn"></td></tr>
+</table>
+</form>
+</td>
+</tr>
+</table>
+</div>
+<div id="footer">
+<div class="bottom_addr"><font color="#FFFFFF">&copy; B-LANKA ONLINE BOOK STORE. All Rights Reserved</font></div>
+</div>
+</div>
+<p>; </p>
+<p>&nbsp;</p>
+</body>
+</html>
