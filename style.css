@@ -1,0 +1,213 @@
+body{
+    margin: 0;
+    padding: 0;
+    background: url(two.jpg)no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    font-family: sans-serif;
+}
+.box{
+
+ 
+    background: #314e5ff0;
+    color: red;
+    top: 60%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    box-sizing: border-box;
+    padding: 30px 30px;
+}
+.user{
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: -50px;
+    left: calc(50% - 50px);
+}
+h1{
+    margin: 0;
+    padding: 0 0 20px;
+    text-align: center;
+    font-size: 22px;
+    color: white;
+}
+p{
+    color: #dedddb;
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+}
+input{
+    width: 100%;
+    margin-bottom: 10px;
+}
+ input[type="text"], input[type="password"] ,input[type="email"]
+{
+    border: none;
+    border-bottom: 1px solid #e8bdbd;
+    background: transparent;
+    outline: none;
+    height: 30px;
+    color: #ffffff;
+    font-size: 16px;
+}
+input[type="submit"]
+{
+    border: none;
+    outline: none;
+    height: 40px;
+    background: #2196f3;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 20px;
+}
+input[type="submit"]:hover
+{
+    cursor: pointer;
+    background: #0097a7;
+}
+a
+{
+    text-decoration: none;
+    font-size: 35px;
+    line-height: 20px;
+    color: #47a29e94;
+}
+a:hover
+{
+    color: red;
+}
+/* Style the navigation bar */
+.navbar {
+  width: 100%;
+  background-color: #15131375;
+  overflow: auto;
+}
+/* Navbar links */
+.navbar a {
+  float: right;
+  text-align: center;
+  padding: 10px;
+  color: white;
+  text-decoration: none;
+  font-size: 17px;
+}
+/* Navbar links on mouse-over */
+.navbar a:hover {
+  background-color: #2acac1c7;
+}
+/* Current/active navbar link */
+.active {
+  background-color: #47a29e94;
+}
+/* Add responsiveness - will automatically display the navbar vertically instead of horizontally on screens less than 500 pixels */
+@media screen and (max-width: 500px) {
+  .navbar a {
+    float: none;
+    display: block;
+  }
+}
+/* Style all font awesome icons */
+.fa {
+  padding: 20px;
+  font-size: 80px;
+  width: 30px;
+  text-align: center;
+  text-decoration: none;
+  /*border-radius: 50%;*/
+}
+/* Add a hover effect if you want */
+.fa:hover {
+  opacity: 1.2;
+}
+/* Facebook */
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+/* Twitter */
+.fa-twitter {
+  background: #55ACEE;
+  color: white; 
+}
+.fa-google {
+  background: #dd4b39;
+  color: white;
+}
+.fa-linkedin {
+  background: #007bb5;
+  color: white;
+}
+.fa-youtube {
+  background: #bb0000;
+  color: white;
+}
+.fa-instagram {
+  background: #125688;
+  color: white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
